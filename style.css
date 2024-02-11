@@ -1,0 +1,183 @@
+:root {
+  --desaturated-red: hsl(0, 36%, 70%);
+  --soft-red: #f96262;
+  --dark-grayish-red: #413a3a;
+  --gradient-light: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+  --gradient-rich: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--gradient-light);
+  font-family: "Josefin Sans", sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+#grid {
+  display: grid;
+  grid-template-rows: auto 70vw auto;
+  grid-template-areas:
+    "header"
+    "poster"
+    "main";
+}
+
+#head-section {
+  grid-area: header;
+}
+
+#head-section #logo {
+  padding: 32px;
+}
+
+#poster-section {
+  background-image: url(./images/hero-mobile.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  grid-area: poster;
+}
+
+#poster-section #poster {
+  width: 100%;
+}
+
+#main-section {
+  padding: 32px;
+  grid-area: main;
+}
+#main-section #heading {
+  margin: 32px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 3em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  line-height: 1.125em;
+}
+
+#main-section #heading #special {
+  font-weight: 300;
+  color: var(--desaturated-red);
+}
+
+#main-section #message {
+  text-align: center;
+  color: var(--desaturated-red);
+  font-weight: 600;
+  line-height: 2em;
+  margin-bottom: 32px;
+}
+
+#form {
+  position: relative;
+  margin-bottom: 48px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#email {
+  width: 100%;
+  background-color: transparent;
+  border: 1px solid var(--desaturated-red);
+  height: 52px;
+  border-radius: 26px;
+  color: var(--desaturated-red);
+  font-size: 1em;
+  padding-left: 24px;
+}
+
+#email:focus {
+  outline: none;
+}
+
+#email::placeholder {
+  color: hsl(0, 40%, 77%);
+  font-weight: 600;
+}
+
+#button {
+  position: absolute;
+  right: 0.5px;
+  top: 0.5px;
+  height: 51px;
+  width: 72px;
+  border-radius: 25.5px;
+  border: none;
+  background: var(--gradient-rich);
+  transition: all 0.1s linear;
+}
+
+#button:hover {
+  width: 88px;
+  height: 55px;
+  top: -1.5px;
+  right: -7px;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
+  -moz-box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
+  box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
+}
+
+@media (min-width: 640px) and (min-aspect-ratio: 1/1) {
+  body {
+    background-image: url(./images/bg-pattern-desktop.svg);
+    background-color: hsl(0, 100%, 98%);
+    background-size: 1000px 1000px;
+    /* background-repeat: no-repeat; */
+  }
+  #grid {
+    grid-template-columns: 4fr 3fr;
+    grid-template-rows: 90px 1fr;
+    grid-template-areas:
+      "header poster"
+      "main poster";
+    min-height: 100vh;
+  }
+
+  #poster-section {
+    background-image: url(./images/hero-desktop.jpg);
+    background-size: cover;
+    grid-area: poster;
+  }
+  #head-section,
+  #main-section {
+    padding: 0 clamp(1.25rem, -7.697rem + 22.368vw, 22.5rem);
+  }
+
+  #main-section {
+    padding-top: clamp(1.25rem, -0.855rem + 5.263vw, 6.25rem);
+  }
+
+  #main-section {
+  }
+
+  #main-section #heading {
+    text-align: left;
+    font-size: clamp(3rem, 1.8rem + 3vw, 4rem);
+  }
+
+  #main-section #message {
+    text-align: left;
+  }
+
+  #form {
+    margin: 0;
+  }
+}
