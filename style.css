@@ -92,7 +92,7 @@ html {
   margin: 0 auto;
 }
 
-#email {
+form > input {
   width: 100%;
   background-color: transparent;
   border: 1px solid var(--desaturated-red);
@@ -101,6 +101,23 @@ html {
   color: var(--desaturated-red);
   font-size: 1em;
   padding-left: 24px;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  text-align: right;
+  margin-top: 12px;
+}
+
+.error-icon {
+  position: absolute;
+  right: 80px;
+  top: 14px;
+  transition: all 0.1s linear;
 }
 
 #email:focus {
@@ -122,6 +139,7 @@ html {
   border: none;
   background: var(--gradient-rich);
   transition: all 0.1s linear;
+  outline: none;
 }
 
 #button:hover {
@@ -133,6 +151,10 @@ html {
   -webkit-box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
   -moz-box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
   box-shadow: 0px 10px 20px -6px rgba(153, 81, 81, 1);
+}
+
+#button:hover ~ .error-icon {
+  right: 88px;
 }
 
 @media (min-width: 640px) and (min-aspect-ratio: 1/1) {
